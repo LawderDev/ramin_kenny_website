@@ -7,100 +7,24 @@
       </div>
       <img src="assets/moon.png" alt="moon" class="moon z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-80">
       <div class="section bg-[#152934]">
-        <h2 class="relative z-20 text-2xl flex items-center justify-center mt-20 font-bold">
-          Compétences
-        </h2>
-        <div class="flex gap-16 items-center justify-center flex-wrap z-20 pt-10 pb-10">
-          <div class="card">
-            <div class="pt-16 pb-12">
-              <font-awesome-icon icon="paintbrush" class="text-[#7FD685] text-3xl xl:text-4xl" />
-            </div>
-            <h3 class="text-xl xl:text-2xl pb-4">
-              Front-end
-            </h3>
-            <h4 class="content-card  text-[#7FD685] pb-2">
-              Langage
-            </h4>
-            <ul class="content-card pb-4">
-              <li>Javascript</li>
-              <li>Typescript</li>
-              <li>CSS</li>
-            </ul>
-            <h4 class="content-card  text-[#7FD685] pb-2">
-              Framework et librairies
-            </h4>
-            <ul class="content-card ">
-              <li>Vue.js</li>
-              <li>Nuxt.js</li>
-              <li>TailwindCSS</li>
-              <li>Bootstrap</li>
-              <li>JQuery</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="pt-16 pb-12">
-              <font-awesome-icon icon="screwdriver-wrench" class="text-[#7FD685] text-3xl xl:text-4xl" />
-            </div>
-            <h3 class="text-xl xl:text-2xl pb-4">
-              Back-end
-            </h3>
-            <h4 class="content-card  text-[#7FD685] pb-2">
-              Langage
-            </h4>
-            <ul class="content-card  pb-4">
-              <li>Javascript</li>
-              <li>Typescript</li>
-              <li>PHP</li>
-            </ul>
-            <h4 class="content-card  text-[#7FD685] pb-2">
-              Framework et librairies
-            </h4>
-            <ul class="content-card  pb-4">
-              <li>Express.js</li>
-              <li>Laravel</li>
-              <li>Symfony</li>
-              <li>Spring Boot</li>
-            </ul>
-
-            <h4 class="content-card  text-[#7FD685] pb-2">
-              CMS
-            </h4>
-            <ul class="content-card ">
-              <li>Strapi</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="pt-16 pb-12">
-              <font-awesome-icon icon="plus" class="text-[#7FD685] text-3xl xl:text-4xl" />
-            </div>
-            <h3 class="text-xl xl:text-2xl pb-4">
-              Autres
-            </h3>
-            <h4 class="content-card text-[#7FD685] pb-2">
-              Langage
-            </h4>
-            <ul class="content-card  pb-4">
-              <li>C</li>
-              <li>C#</li>
-              <li>Java</li>
-              <li>Kotlin</li>
-            </ul>
-            <h4 class="content-card  text-[#7FD685] pb-2">
-              Framework et librairies
-            </h4>
-            <ul class="content-card  pb-4">
-              <li>Windows Form</li>
-              <li>WPF</li>
-            </ul>
-
-            <h4 class="content-card text-[#7FD685] pb-2">
-              Moteur de jeu
-            </h4>
-            <ul class="content-card xl:text-xl">
-              <li>Unity 3D</li>
-            </ul>
+        <skills-section />
+      </div>
+      <div class="section bg-[#152934] flex items-center justify-center">
+        <h2 class="pb-12 text-2xl font-bold">Réalisations</h2>
+        <div class="container">
+          <input id="item-1" type="radio" name="slider" checked>
+          <input id="item-2" type="radio" name="slider">
+          <input id="item-3" type="radio" name="slider">
+          <div class="cards">
+            <label id="song-1" class="card" for="item-1">
+              <img class="rounded-xl object-cover w-full h-full border-[#1B3543] border-2" src="assets/project_IGDB.png" alt="IGDB">
+            </label>
+            <label id="song-2" class="card" for="item-2">
+              <img class="rounded-xl object-cover w-full h-full border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
+            </label>
+            <label id="song-3" class="card" for="item-3">
+              <img class="rounded-xl object-cover w-full h-full border-[#1B3543] border-2" src="assets/imageindragon.png" alt="imageindragon">
+            </label>
           </div>
         </div>
       </div>
@@ -110,6 +34,7 @@
 
 <script lang="ts" setup>
 import HomeSection from '@/components/HomeSection.vue'
+import SkillsSection from '@/components/SkillsSection.vue'
 </script>
 
 <style>
@@ -129,15 +54,60 @@ import HomeSection from '@/components/HomeSection.vue'
   }
 }
 
-.card{
-  @apply w-[19rem] h-[36.5rem] md:h-[36.5rem] md:w-[27rem] lg:w-[19rem] lg:h-[36.5rem] xl:w-[27rem] xl:h-[44.5rem] bg-[#1B3543] rounded-2xl z-20 flex flex-col items-center text-center border-[#152934] transition-colors hover:border-[#7FD685] border-2
-}
-
-.content-card{
-  @apply text-lg xl:text-xl
-}
-
 .fp-watermark{
   visibility: hidden;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.card {
+  position: absolute;
+  width: 50vw;
+  height: 60vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform .4s ease;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+#item-1:checked ~ .cards #song-3, #item-2:checked ~ .cards #song-1, #item-3:checked ~ .cards #song-2 {
+  transform: translatex(-40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-2, #item-2:checked ~ .cards #song-3, #item-3:checked ~ .cards #song-1 {
+  transform: translatex(40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-1, #item-2:checked ~ .cards #song-2, #item-3:checked ~ .cards #song-3 {
+  transform: translatex(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+  @apply transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300
 }
 </style>
