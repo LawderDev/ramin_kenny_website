@@ -5,9 +5,9 @@
         <div class="w-16 h-16 bg-[#1B3543] rounded-full" />
       </div>
       <nav class="flex gap-5 align-super items-center z-[1]">
-        <a href="" class="hover">Accueil</a>
-        <a href="" class="hover">Compétences</a>
-        <a href="" class="hover">Réalisation</a>
+        <a href="#page1" class="hover">Accueil</a>
+        <a href="#page2" class="hover">Compétences</a>
+        <a href="#page3" class="hover">Réalisation</a>
         <a href="" class="hover">A propos</a>
         <a href="" class="hover">Contact</a>
       </nav>

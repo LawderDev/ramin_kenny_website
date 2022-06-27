@@ -2,16 +2,49 @@
   <ClientOnly>
     <full-page id="fullpage" ref="fullpage" class="text-[#FEFEFF]">
       <img src="assets/satellite.png" alt="earth-satellite" class="satellite absolute z-[2] max-w-[34vw] md:max-w-[22vw] lg:max-w-[12vw] top-[15vh] lg:top-[5vh] left-[15vw] lg:left-[20vw] animate-[spin_3s_linear_infinite]">
-      <div class="section bg-[#152934]">
+      <div class="section bg-[#152934]" data-anchor="page1">
         <home-section />
       </div>
       <img src="assets/moon.png" alt="moon" class="moon z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-80">
-      <div class="section bg-[#152934]">
+      <div class="section bg-[#152934]" data-anchor="page2">
         <skills-section />
       </div>
-      <div class="section bg-[#152934] flex items-center justify-center">
-        <h2 class="pb-12 text-2xl font-bold">Réalisations</h2>
-        <div class="container">
+      <div class="section bg-[#152934] flex items-center" data-anchor="page3">
+        <div class="absolute top-56">
+          <h2 class="text-2xl font-bold relative">
+            Principaux Réalisations
+          </h2>
+        </div>
+        <swiper
+          :slides-per-view="5"
+          :space-between="30"
+          :loop="true"
+          :pagination="{
+            clickable: true,
+          }"
+          :navigation="true"
+          :centered-slides="true"
+          :slideToClickedSlide="true"
+          :modules="[Pagination, Navigation]"
+          class="mySwipe w-[98vw] h-[33vh] overflow-visible"
+        >
+          <swiper-slide>
+            <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/project_IGDB.png" alt="IGDB">
+          </swiper-slide>
+          <swiper-slide>
+            <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
+          </swiper-slide>
+          <swiper-slide>
+            <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/project_IGDB.png" alt="IGDB">
+          </swiper-slide>
+          <swiper-slide>
+            <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2 " src="assets/imageindragon.png" alt="imageindragon">
+          </swiper-slide>
+          <swiper-slide>
+            <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
+          </swiper-slide>
+        </swiper>
+        <!-- <div class="container">
           <input id="item-1" type="radio" name="slider" checked>
           <input id="item-2" type="radio" name="slider">
           <input id="item-3" type="radio" name="slider">
@@ -23,18 +56,27 @@
               <img class="rounded-xl object-cover w-full h-full border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
             </label>
             <label id="song-3" class="card" for="item-3">
-              <img class="rounded-xl object-cover w-full h-full border-[#1B3543] border-2" src="assets/imageindragon.png" alt="imageindragon">
+              <img class="rounded-xl object-cover w-full h-full border-[#1B3543] border-2 " src="assets/imageindragon.png" alt="imageindragon">
             </label>
           </div>
-        </div>
+        </div> -->
       </div>
     </full-page>
   </ClientOnly>
 </template>
 
 <script lang="ts" setup>
+import { Pagination, Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import HomeSection from '@/components/HomeSection.vue'
 import SkillsSection from '@/components/SkillsSection.vue'
+
+// Import Swiper styles
+import 'swiper/css'
+
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+
 </script>
 
 <style>
@@ -52,6 +94,18 @@ import SkillsSection from '@/components/SkillsSection.vue'
   .moon {
     @apply top-[85vh] z-[1] max-w-[35vw] left-[62vw]
   }
+}
+
+.swiper{
+  overflow: visible;
+}
+
+.swiper-slide:not(.swiper-slide-active){
+  @apply transition hover:ease-in-out hover:duration-150 hover:translate-y-1 hover:scale-110
+}
+
+.swiper-slide-active{
+  @apply transition ease-in-out duration-150 translate-y-1 scale-125 z-10
 }
 
 .fp-watermark{
