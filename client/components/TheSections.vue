@@ -28,19 +28,19 @@
           :modules="[Pagination, Navigation]"
           class="mySwipe w-[98vw] h-[33vh] overflow-visible"
         >
-          <swiper-slide>
+          <swiper-slide class="project-slides">
             <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/project_IGDB.png" alt="IGDB">
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="project-slides">
             <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="project-slides">
             <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/project_IGDB.png" alt="IGDB">
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="project-slides">
             <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2 " src="assets/imageindragon.png" alt="imageindragon">
           </swiper-slide>
-          <swiper-slide>
+          <swiper-slide class="project-slides">
             <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
           </swiper-slide>
         </swiper>
@@ -96,15 +96,15 @@ import 'swiper/css/navigation'
   }
 }
 
-.swiper{
+.mySwipe{
   overflow: visible;
 }
 
-.swiper-slide:not(.swiper-slide-active){
+.project-slides:not(.swiper-slide-active){
   @apply transition hover:ease-in-out hover:duration-150 hover:translate-y-1 hover:scale-110
 }
 
-.swiper-slide-active{
+.mySwipe .swiper-slide-active{
   @apply transition ease-in-out duration-150 translate-y-1 scale-125 z-10
 }
 
