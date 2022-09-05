@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="relative z-20 text-2xl flex items-center justify-center mt-20 font-bold">
+    <h2 class="relative z-20 text-2xl flex items-center justify-center mb-8 font-bold">
       Compétences
     </h2>
-    <div class="ml-[9vw] z-10 relative">
+    <div class="md:w-[90vw] md:h-auto w-[19rem] h-[40rem] m-auto md:ml-[9vw] z-10 relative">
       <swiper
         :slides-per-view="slidesPerView"
         :modules="[Pagination]"
@@ -11,7 +11,6 @@
           clickable:true
         }"
         class="mySkillSwipe"
-        @init="setSlidesPerView"
       >
         <swiper-slide>
           <div class="skill-card">
@@ -130,14 +129,11 @@ import { onUnmounted, ref } from '#imports'
 
 const slidesPerView = ref(-1)
 
-const setSlidesPerView = () => {
-  orientationChangeHandler()
-}
-
 const orientationChangeHandler = () => {
-  slidesPerView.value = window.matchMedia('(orientation:portrait)').matches ? 1 : 3
-  console.log(window.matchMedia('(orientation:portrait)').matches)
+  slidesPerView.value = window.matchMedia('(orientation:portrait)').matches && window.matchMedia('(max-width: 767px)').matches ? 1 : 3
+  if (window.matchMedia('(orientation:portrait)').matches && window.matchMedia('(min-width: 768px)').matches) { slidesPerView.value = 2 }
 }
+orientationChangeHandler()
 
 if (process.client) {
   window.addEventListener('resize', orientationChangeHandler)
@@ -152,7 +148,7 @@ onUnmounted(() => {
 
 <style scoped>
 .skill-card{
-  @apply w-[19rem] h-[40rem] md:h-[40rem] md:w-[27rem] lg:w-[19rem] lg:h-[40rem] xl:w-[27rem] xl:h-[44.5rem] bg-[#1B3543] rounded-2xl z-20 flex flex-col items-center text-center border-[#152934] transition-colors hover:border-[#7FD685] border-2
+  @apply w-[19rem] h-[40rem] md:h-[40rem] md:w-[17rem] lg:w-[19rem] lg:h-[40rem] xl:w-[27rem] xl:h-[44.5rem] bg-[#1B3543] rounded-2xl z-20 flex flex-col items-center text-center border-[#152934] transition-colors hover:border-[#7FD685] border-2
 }
 
 .content-card{
