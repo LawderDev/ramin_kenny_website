@@ -12,6 +12,9 @@
       <div class="section bg-[#152934] m-auto" data-anchor="page3">
         <projects-section />
       </div>
+      <div class="section bg-[#152934] m-auto" data-anchor="page4">
+        <about-section />
+      </div>
     </full-page>
   </ClientOnly>
 </template>
@@ -20,6 +23,7 @@
 import HomeSection from '@/components/HomeSection.vue'
 import SkillsSection from '@/components/SkillsSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
+import AboutSection from '@/components/AboutSection.vue'
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="relative z-20 text-2xl flex items-center justify-center mb-8 font-bold">
+    <h2 class="relative z-20 text-3xl flex items-center justify-center mb-8 font-bold">
       Compétences
     </h2>
     <div class="landscape:w-[90vw] landscape:ml-[7.5vw] ml-[5.3vw] md:ml-[2.5vw] h-[40rem] m-auto z-10 relative">

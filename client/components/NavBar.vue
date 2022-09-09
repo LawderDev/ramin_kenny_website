@@ -8,8 +8,8 @@
         <a href="#page1" class="hover">Accueil</a>
         <a href="#page2" class="hover">Compétences</a>
         <a href="#page3" class="hover">Réalisation</a>
-        <a href="" class="hover">A propos</a>
-        <a href="" class="hover">Contact</a>
+        <a href="#page4" class="hover">A propos</a>
+        <a href="#page5" class="hover">Contact</a>
       </nav>
     </div>
   </div>
