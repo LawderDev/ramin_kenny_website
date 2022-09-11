@@ -23,5 +23,10 @@ export default defineNuxtConfig({
     version: 'v4',
     cookie: {},
     cookieName: 'strapi_jwt'
+  },
+  publicRuntimeConfig: {
+    serviceId: process.env.SERVICE_ID,
+    templateId: process.env.TEMPLATE_ID,
+    publicKey: process.env.PUBLIC_KEY
   }
 })
