@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2 class="relative z-20 text-3xl flex items-center justify-center mb-16 font-bold">
+    <div>
+    <h2 class="relative z-20 text-3xl flex items-center justify-center mb-16 font-bold pt-[10vh]">
       Principaux Réalisations
     </h2>
     <swiper
@@ -14,7 +14,7 @@
       :centered-slides="true"
       :slide-to-clicked-slide="true"
       :modules="[Pagination, Navigation]"
-      class="mySwipe w-[98vw] h-[33vh] overflow-visible"
+      class="mySwipe w-[98vw] h-[33vh] overflow-visible relative z-0"
       @beforeInit="orientationChangeHandler"
     >
       <swiper-slide class="project-slides">

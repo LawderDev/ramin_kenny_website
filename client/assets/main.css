@@ -1,0 +1,11 @@
+.pageD-enter-active,.pageD-leave-active {  transition: bottom 1s, top 1s ;}
+.pageD-enter-to {  position: absolute;  bottom: 0;}
+.pageD-enter-from {  position: absolute;  bottom: -100%;}
+.pageD-leave-to {  position: absolute;  top: -100%; }
+.pageD-leave-from {  position: absolute;  top: 0; }
+
+.pageUp-enter-active,.pageUp-leave-active {  transition: bottom 1s, top 1s ;}
+.pageUp-enter-to {  position: absolute;  top: 0; }
+.pageUp-enter-from {  position: absolute;  top: -100%;}
+.pageUp-leave-to {  position: absolute;  bottom: -100%; }
+.pageUp-leave-from {  position: absolute;  bottom: 0; }

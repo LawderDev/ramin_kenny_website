@@ -1,30 +1,30 @@
 <template>
-  <div>
-    <h2 class="relative z-20 text-3xl flex items-center justify-center mb-8 font-bold">
-      Compétences
-    </h2>
-    <div class="landscape:w-[90vw] landscape:ml-[7.5vw] ml-[5.3vw] md:ml-[2.5vw] h-[40rem] m-auto z-10 relative">
-      <swiper
-        :slides-per-view="slidesPerView"
-        :modules="[Pagination]"
-        :pagination="{
-          clickable:true
-        }"
-        class="mySkillSwipe"
-      >
-        <swiper-slide>
-          <skill-card :title="'Front-end'" :content="frontSkills" />
-        </swiper-slide>
+  <div class="w-screen h-screen bg-[#152934] flex items-center justify-center flex-col z-0" data-anchor="page1">
+      <h2 class="text-md relative z-20 xl:text-3xl flex items-center justify-center md:mb-8 font-bold">
+        Compétences
+      </h2>
+      <div class="w-[90vw] landscape:w-[90vw] landscape:ml-[7.5vw] ml-[5.3vw] md:ml-[2.5vw] h-[40rem] z-10 relative relative z-0">
+        <swiper
+          :slides-per-view="slidesPerView"
+          :modules="[Pagination]"
+          :pagination="{
+            clickable:true
+          }"
+          class="mySkillSwipe"
+        >
+          <swiper-slide>
+            <skill-card :title="'Front-end'" :content="frontSkills" />
+          </swiper-slide>
 
-        <swiper-slide>
-          <skill-card :title="'Back-end'" :content="backSkills" />
-        </swiper-slide>
+          <swiper-slide>
+            <skill-card :title="'Back-end'" :content="backSkills" />
+          </swiper-slide>
 
-        <swiper-slide>
-          <skill-card :title="'Autres'" :content="otherSkills" />
-        </swiper-slide>
-      </swiper>
-    </div>
+          <swiper-slide>
+            <skill-card :title="'Autres'" :content="otherSkills" />
+          </swiper-slide>
+        </swiper>
+      </div>
   </div>
 </template>
 
