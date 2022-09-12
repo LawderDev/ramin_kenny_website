@@ -2,18 +2,18 @@
   <ClientOnly>
     <div class="text-[#FEFEFF]">
       <swiper
-          :direction="'vertical'"
-          :pagination="{
-            clickable: true,
-          }"
-          :mousewheel="true"
-          :modules="[Pagination, Mousewheel]"
-          @swiper="onSwiper"
-          class="myPrincipalSwiper"
+        :direction="'vertical'"
+        :pagination="{
+          clickable: true,
+        }"
+        :mousewheel="true"
+        :modules="[Pagination, Mousewheel]"
+        class="myPrincipalSwiper"
+        @swiper="onSwiper"
       >
         <swiper-slide>
           <div class="w-screen h-screen flex items-center" data-anchor="page1">
-            <random-stars></random-stars>
+            <random-stars />
             <img src="assets/satellite.png" alt="earth-satellite" class="satellite absolute z-10 max-w-[34vw] md:max-w-[22vw] lg:max-w-[12vw] top-[15vh] lg:top-[5vh] left-[15vw] lg:left-[20vw] animate-[spin_3s_linear_infinite]">
             <home-section />
           </div>
@@ -21,13 +21,13 @@
         </swiper-slide>
 
         <swiper-slide class="z-20">
-          <random-stars></random-stars>
+          <random-stars />
           <img src="assets/moon.png" alt="moon" class="moonDown">
           <skills-section />
         </swiper-slide>
 
         <swiper-slide class="z-10">
-          <random-stars></random-stars>
+          <random-stars />
           <div class="w-screen h-screen bg-[#152934] flex items-center" data-anchor="page3">
             <projects-section />
           </div>
@@ -35,14 +35,14 @@
         </swiper-slide>
 
         <swiper-slide class="z-10">
-          <random-stars></random-stars>
+          <random-stars />
           <img src="assets/uranus.png" alt="moon" class="uranusDown">
           <div class="w-screen h-screen bg-[#152934] flex items-center" data-anchor="page4">
             <about-section />
           </div>
         </swiper-slide>
         <swiper-slide>
-          <random-stars></random-stars>
+          <random-stars />
           <img src="assets/saturn.png" alt="moon" class="moonUp">
           <contact-section />
         </swiper-slide>
@@ -52,25 +52,22 @@
 </template>
 
 <script lang="ts" setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Mousewheel, Pagination } from 'swiper'
 import HomeSection from '@/components/HomeSection.vue'
 import SkillsSection from '@/components/SkillsSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
 import AboutSection from '@/components/AboutSection.vue'
-import ContactSection from '@/components/ContactSection.vue';
-import RandomStars from '@/components/RandomStars.vue';
-import { Swiper, SwiperSlide } from "swiper/vue";
-import {useSliderStore} from "~/stores/sliderStore";
-import "swiper/css"
-import "swiper/css/pagination"
+import ContactSection from '@/components/ContactSection.vue'
+import RandomStars from '@/components/RandomStars.vue'
+import { useSliderStore } from '~/stores/sliderStore'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 const sliderStore = useSliderStore()
-// import required modules
-import { Mousewheel, Pagination } from "swiper";
-
 const onSwiper = (swiper) => {
-  console.log(swiper)
   sliderStore.slider = swiper
-};
+}
 </script>
 
 <style>
@@ -84,7 +81,6 @@ const onSwiper = (swiper) => {
   width: 100vw;
   height: 100vh;
 }
-
 
 .myPrincipalSwiper .swiper-slide {
 }

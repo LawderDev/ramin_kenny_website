@@ -1,5 +1,5 @@
 <template>
-    <div>
+  <div>
     <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex items-center justify-center portrait:mb-12 portrait:md:mb-14 mb-10 font-bold ">
       Principaux Réalisations
     </h2>
@@ -18,19 +18,19 @@
       @beforeInit="orientationChangeHandler"
     >
       <swiper-slide class="project-slides">
-        <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/project_IGDB.png" alt="IGDB">
+        <img class="imgProject" src="assets/project_IGDB.png" alt="IGDB">
       </swiper-slide>
       <swiper-slide class="project-slides">
-        <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
+        <img class="imgProject" src="assets/perso.png" alt="perso">
       </swiper-slide>
       <swiper-slide class="project-slides">
-        <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/project_IGDB.png" alt="IGDB">
+        <img class="imgProject" src="assets/project_IGDB.png" alt="IGDB">
       </swiper-slide>
       <swiper-slide class="project-slides">
-        <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2 " src="assets/imageindragon.png" alt="imageindragon">
+        <img class="imgProject" src="assets/imageindragon.png" alt="imageindragon">
       </swiper-slide>
       <swiper-slide class="project-slides">
-        <img class="rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2" src="assets/perso.png" alt="perso">
+        <img class="imgProject" src="assets/perso.png" alt="perso">
       </swiper-slide>
     </swiper>
   </div>
@@ -46,11 +46,9 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { onUnmounted, ref } from '#imports'
 
-const slidesPerView = ref(-1)
+const slidesPerView = ref(-1 as number)
 
-const orientationChangeHandler = () => {
-  slidesPerView.value = window.matchMedia('(orientation:portrait)').matches ? 2 : 5
-}
+const orientationChangeHandler = () => { slidesPerView.value = window.matchMedia('(orientation:portrait)').matches ? 2 : 5 }
 
 if (process.client) {
   orientationChangeHandler()
@@ -76,5 +74,9 @@ onUnmounted(() => {
 
 .mySwipe .swiper-slide-active{
   @apply transition ease-in-out duration-150 translate-y-1 scale-125 z-10
+}
+
+.imgProject{
+  @apply rounded-xl object-cover w-[60vw] h-[25vh] border-[#1B3543] border-2
 }
 </style>

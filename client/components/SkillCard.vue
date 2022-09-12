@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 interface ISkill{
   name: string,
   content: Array<string>,
@@ -30,8 +30,6 @@ const props = defineProps<{
   icon: string
   content: Array<ISkill>
 }>()
-
-
 </script>
 
 <style scoped>

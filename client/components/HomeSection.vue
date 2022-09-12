@@ -1,5 +1,5 @@
 <template>
-    <div>
+  <div>
     <div class="ml-[3vh] sm:ml-[12.5vw] w-[25rem] lg:w-[49rem]">
       <div class="flex">
         <div class="home-presentation text-4xl md:text-5xl xl:text-8xl border-b-2 border-[#7FD685] pb-4 mb-4 relative z-0">
@@ -33,14 +33,13 @@
 
 <script lang="ts" setup>
 import { authorQuery } from '~/graphql/query'
-import {useSliderStore} from "~/stores/sliderStore";
+import { useSliderStore } from '~/stores/sliderStore'
+import { useStrapiGraphQL } from '#imports'
+
 const graphql = useStrapiGraphQL()
-
 const authors = await graphql(authorQuery)
-
 const sliderStore = useSliderStore()
-
-const slideTo = (index: number) => sliderStore.slider.slideTo(index)
+const slideTo = (index: number) => sliderStore.slideTo(index)
 </script>
 
 <style scoped>
@@ -49,7 +48,7 @@ const slideTo = (index: number) => sliderStore.slider.slideTo(index)
 }
 
 .bubble-text::after{
-  @apply  content-[""] top-[135px] xl:top-[140px] border-x-[20px] border-x-transparent border-t-[20px] border-t-transparent border-t-[#1B3543] absolute;
+  @apply content-[""] top-[135px] xl:top-[140px] border-x-[20px] border-x-transparent border-t-[20px] border-t-transparent border-t-[#1B3543] absolute;
 }
 
 @media (orientation: landscape) and (max-device-width: 670px)  {

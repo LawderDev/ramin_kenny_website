@@ -39,5 +39,5 @@ const props = defineProps({
   open: Boolean
 })
 
-const emit = defineEmits(['close'])
+defineEmits(['close'])
 </script>

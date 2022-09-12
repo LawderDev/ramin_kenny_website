@@ -1,10 +1,10 @@
 <template>
   <div class="w-screen h-screen section bg-[#152934] flex flex-col items-center justify-center">
-    <contact-modal :open="open" @close="open=false"></contact-modal>
+    <contact-modal :open="open" @close="open=false" />
     <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex items-center justify-center portrait:mb-2 lg:mb-4 font-bold">
       Contact
     </h2>
-    <form class="flex justify-center items-center flex-col relative z-10" @submit.prevent="sendEmail" ref="form">
+    <form ref="form" class="flex justify-center items-center flex-col relative z-10" @submit.prevent="sendEmail">
       <div class="bg-[#1B3543] rounded-2xl landscape:h-[82vh] landscape:w-[70vw] w-[80vw] landscape:lg:h-[60vh] landscape:xl:h-[53vh] h-[28rem] md:h-[55vh] flex flex-col items-center gap-3 justify-center landscape:mb-2 landscape:lg:mb-10 mb-4 md:mb-10">
         <div class="flex flex-col w-[95%]">
           <label class="titleInput">Nom</label>
@@ -26,12 +26,13 @@
         </div>
         <div class="flex flex-col w-[95%]">
           <label class="titleInput">Message</label>
-          <textarea name="message"
+          <textarea
+            name="message"
             class="w-full landscape:h-20 landscape:lg:h-40 h-40 bg-[#224254] border-2 border-[#152934] text-gray-300  mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
           />
         </div>
         <div class="landscape:mb-7 landscape:lg:mb-0 lg:mt-4">
-          <input type="submit" class="button bg-[#7FD685] hover:bg-[#7fd698] transition-colors ease-in-out rounded-md px-4 py-1 md:px-6 md:py-2 text-[#152934] shadow-md cursor-pointer" value="Envoyer"/>
+          <input type="submit" class="button bg-[#7FD685] hover:bg-[#7fd698] transition-colors ease-in-out rounded-md px-4 py-1 md:px-6 md:py-2 text-[#152934] shadow-md cursor-pointer" value="Envoyer">
         </div>
       </div>
       <div class="w-[70vw] flex gap-10">
@@ -43,20 +44,21 @@
   </div>
 </template>
 
-<script setup>
-import emailjs from '@emailjs/browser';
-import {useRuntimeConfig} from "nuxt/app";
-import ContactModal from "~/components/ContactModal";
+<script setup lang="ts">
+import emailjs from '@emailjs/browser'
+import { useRuntimeConfig } from 'nuxt/app'
+import ContactModal from '~/components/ContactModal'
+import { ref } from '#imports'
 
-const form = ref({})
+const form = ref({} as HTMLFormElement)
 const env = useRuntimeConfig()
+const open = ref(false as boolean)
 
-const open= ref(false)
+const sendEmail = () => emailjs.sendForm(env.serviceId, env.templateId, form.value, env.publicKey)
+  .then(() => {
+    open.value = true
+  })
 
-const sendEmail = () => {
-  emailjs.sendForm(env.serviceId, env.templateId, form.value, env.publicKey)
-         .then(() => open.value = true)
-}
 </script>
 
 <style scoped>
