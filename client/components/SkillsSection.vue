@@ -1,9 +1,9 @@
 <template>
-  <div class="w-screen h-screen bg-[#152934] flex items-center justify-center flex-col z-0" data-anchor="page1">
-      <h2 class="text-md relative z-20 xl:text-3xl flex items-center justify-center md:mb-8 font-bold">
+  <div class="w-screen h-screen bg-[#152934] flex items-center justify-center flex-col">
+      <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex portrait:mt-10 portrait:md:mt-0 portrait:mb-2 items-center justify-center md:mb-4 font-bold">
         Compétences
       </h2>
-      <div class="w-[90vw] landscape:w-[90vw] landscape:ml-[7.5vw] ml-[5.3vw] md:ml-[2.5vw] h-[40rem] z-10 relative relative z-0">
+      <div class="w-[90vw] landscape:w-[90vw] landscape:ml-[7.5vw] ml-[5.3vw] md:ml-[2.5vw] h-[40rem] z-10 relative ">
         <swiper
           :slides-per-view="slidesPerView"
           :modules="[Pagination]"

@@ -8,20 +8,21 @@
           }"
           :mousewheel="true"
           :modules="[Pagination, Mousewheel]"
+          @swiper="onSwiper"
           class="myPrincipalSwiper"
       >
         <swiper-slide>
-          <div class="w-screen h-screen flex items-center z-0" data-anchor="page1">
+          <div class="w-screen h-screen flex items-center" data-anchor="page1">
             <random-stars></random-stars>
-            <img src="assets/satellite.png" alt="earth-satellite" class="satellite absolute z-[2] max-w-[34vw] md:max-w-[22vw] lg:max-w-[12vw] top-[15vh] lg:top-[5vh] left-[15vw] lg:left-[20vw] animate-[spin_3s_linear_infinite]">
+            <img src="assets/satellite.png" alt="earth-satellite" class="satellite absolute z-10 max-w-[34vw] md:max-w-[22vw] lg:max-w-[12vw] top-[15vh] lg:top-[5vh] left-[15vw] lg:left-[20vw] animate-[spin_3s_linear_infinite]">
             <home-section />
           </div>
-          <img src="assets/moon.png" alt="moon" class="moon z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-80">
+          <img src="assets/moon.png" alt="moon" class="moonUp">
         </swiper-slide>
 
         <swiper-slide>
           <random-stars></random-stars>
-          <img src="assets/moon.png" alt="moon" class="moon z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[-30vh] max-w-[70vw] opacity-80">
+          <img src="assets/moon.png" alt="moon" class="moonDown">
           <skills-section />
         </swiper-slide>
 
@@ -44,25 +45,6 @@
         </swiper-slide>
       </swiper>
     </div>
-      <!-- <div class="text-[#FEFEFF] overflow-y-scroll relative">
-        <img src="assets/satellite.png" alt="earth-satellite" class="satellite absolute z-[2] max-w-[34vw] md:max-w-[22vw] lg:max-w-[12vw] top-[15vh] lg:top-[5vh] left-[15vw] lg:left-[20vw] animate-[spin_3s_linear_infinite]">
-        <div class="w-screen h-screen section bg-[#152934] flex items-center" data-anchor="page1">
-          <home-section />
-        </div>
-        <img src="assets/moon.png" alt="moon" class="moon z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-80">
-        <div class="w-screen h-screen section bg-[#152934] m-auto" data-anchor="page2">
-          <skills-section />
-        </div>
-        <div class="w-screen h-screen section bg-[#152934] m-auto" data-anchor="page3">
-          <projects-section />
-        </div>
-        <div class="w-screen h-screen section bg-[#152934] m-auto" data-anchor="page4">
-          <about-section />
-        </div>
-        <div class="w-screen h-screen section bg-[#152934] m-auto" data-anchor="page5">
-          <contact-section />
-        </div>
-      </div> -->
   </ClientOnly>
 </template>
 
@@ -73,15 +55,19 @@ import ProjectsSection from '@/components/ProjectsSection.vue'
 import AboutSection from '@/components/AboutSection.vue'
 import ContactSection from '@/components/ContactSection.vue';
 import RandomStars from '@/components/RandomStars.vue';
-// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
-
-// Import Swiper styles
+import {useSliderStore} from "~/stores/sliderStore";
 import "swiper/css"
 import "swiper/css/pagination"
 
+const sliderStore = useSliderStore()
 // import required modules
 import { Mousewheel, Pagination } from "swiper";
+
+const onSwiper = (swiper) => {
+  console.log(swiper)
+  sliderStore.slider = swiper
+};
 </script>
 
 <style>
@@ -100,13 +86,24 @@ import { Mousewheel, Pagination } from "swiper";
 .myPrincipalSwiper .swiper-slide {
 }
 
+.moonUp{
+  @apply z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-80
+}
+
+.moonDown{
+  @apply z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[-24vh] md:top-[-24vh] lg:top-[-15vh] xl:top-[-30vh] max-w-[70vw] opacity-80
+}
+
 @media (orientation: landscape) and (max-device-width : 960px) {
   .satellite {
     @apply hidden
   }
 
-  .moon {
+  .moonUp {
     @apply top-[85vh] z-[1] max-w-[35vw] left-[62vw]
+  }
+  .moonDown {
+    @apply top-[-15vhvh] z-[1] max-w-[35vw] left-[62vw]
   }
 }
 .fp-watermark{

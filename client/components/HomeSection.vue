@@ -21,7 +21,7 @@
       <p class="pl-2 text-xl xl:text-3xl">
         Un bon site Web est toujours "en construction" !
       </p>
-      <div class="more text-2xl xl:text-3xl relative top-[11.85vh] flex gap-5">
+      <div class="more text-2xl xl:text-3xl relative top-[11.85vh] flex gap-5 cursor-pointer" @click="slideTo(1)">
         <div class="w-14 h-14 xl:w-20 xl:h-20 rounded-full border-2 border-white flex items-center justify-center  ">
           <font-awesome-icon icon="arrow-down-long" class="animate-[bounce_1s_linear_infinite] xl:text-4xl" />
         </div>
@@ -33,9 +33,14 @@
 
 <script lang="ts" setup>
 import { authorQuery } from '~/graphql/query'
+import {useSliderStore} from "~/stores/sliderStore";
 const graphql = useStrapiGraphQL()
 
 const authors = await graphql(authorQuery)
+
+const sliderStore = useSliderStore()
+
+const slideTo = (index: number) => sliderStore.slider.slideTo(index)
 </script>
 
 <style scoped>

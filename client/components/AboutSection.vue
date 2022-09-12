@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h2 class="relative z-20 text-3xl flex items-center justify-center mb-8 font-bold">
+      <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex items-center justify-center md:mb-4 font-bold">
         À propos
       </h2>
       <div class="sm:text-sm md:text-lg landscape:md:text-sm landscape:lg:text-lg flex-row lg:flex-row-reverse landscape:xl:text-2xl flex align-center lg:justify-center flex-wrap px-10 relative z-0">

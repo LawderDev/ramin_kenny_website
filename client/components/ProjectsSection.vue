@@ -1,6 +1,6 @@
 <template>
     <div>
-    <h2 class="relative z-20 text-3xl flex items-center justify-center mb-16 font-bold pt-[10vh]">
+    <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex items-center justify-center portrait:mb-12 portrait:md:mb-14 mb-10 font-bold ">
       Principaux Réalisations
     </h2>
     <swiper
