@@ -1,5 +1,6 @@
 <template>
   <div class="w-screen h-screen section bg-[#152934] flex flex-col items-center justify-center">
+    <contact-modal :open="open" @close="open=false"></contact-modal>
     <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex items-center justify-center portrait:mb-2 lg:mb-4 font-bold">
       Contact
     </h2>
@@ -45,17 +46,16 @@
 <script setup>
 import emailjs from '@emailjs/browser';
 import {useRuntimeConfig} from "nuxt/app";
+import ContactModal from "~/components/ContactModal";
 
 const form = ref({})
 const env = useRuntimeConfig()
 
+const open= ref(false)
+
 const sendEmail = () => {
   emailjs.sendForm(env.serviceId, env.templateId, form.value, env.publicKey)
-      .then((result) => {
-        console.log('SUCCESS!', result.text);
-      }, (error) => {
-        console.log('FAILED...', error.text);
-      });
+         .then(() => open.value = true)
 }
 </script>
 

@@ -7,7 +7,9 @@ export default defineNuxtConfig({
     transpile: [
       '@fortawesome/fontawesome-svg-core',
       '@fortawesome/free-solid-svg-icons',
-      '@fortawesome/free-brands-svg-icons'
+      '@fortawesome/free-brands-svg-icons',
+      '@headlessui/vue',
+      '@heroicons/vue'
     ]
   },
   css: [
