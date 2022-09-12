@@ -31,7 +31,7 @@
   </TransitionRoot>
 </template>
 
-<script setup>  
+<script setup>
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { CheckIcon } from '@heroicons/vue/24/outline'
 
