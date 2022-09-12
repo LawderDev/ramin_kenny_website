@@ -4,7 +4,7 @@
     <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex items-center justify-center portrait:mb-2 lg:mb-4 font-bold">
       Contact
     </h2>
-    <form class="flex justify-center items-center flex-col relative z-0" @submit.prevent="sendEmail" ref="form">
+    <form class="flex justify-center items-center flex-col relative z-10" @submit.prevent="sendEmail" ref="form">
       <div class="bg-[#1B3543] rounded-2xl landscape:h-[82vh] landscape:w-[70vw] w-[80vw] landscape:lg:h-[60vh] landscape:xl:h-[53vh] h-[28rem] md:h-[55vh] flex flex-col items-center gap-3 justify-center landscape:mb-2 landscape:lg:mb-10 mb-4 md:mb-10">
         <div class="flex flex-col w-[95%]">
           <label class="titleInput">Nom</label>

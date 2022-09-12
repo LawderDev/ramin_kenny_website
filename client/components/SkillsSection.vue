@@ -13,15 +13,15 @@
           class="mySkillSwipe"
         >
           <swiper-slide>
-            <skill-card :title="'Front-end'" :content="frontSkills" />
+            <skill-card :title="'Front-end'" :icon="'paintbrush'" :content="frontSkills" />
           </swiper-slide>
 
           <swiper-slide>
-            <skill-card :title="'Back-end'" :content="backSkills" />
+            <skill-card :title="'Back-end'" :icon="'screwdriver-wrench'" :content="backSkills" />
           </swiper-slide>
 
           <swiper-slide>
-            <skill-card :title="'Autres'" :content="otherSkills" />
+            <skill-card :title="'Autres'" :icon="'plus'" :content="otherSkills" />
           </swiper-slide>
         </swiper>
       </div>

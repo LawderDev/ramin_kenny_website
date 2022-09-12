@@ -20,28 +20,31 @@
           <img src="assets/moon.png" alt="moon" class="moonUp">
         </swiper-slide>
 
-        <swiper-slide>
+        <swiper-slide class="z-20">
           <random-stars></random-stars>
           <img src="assets/moon.png" alt="moon" class="moonDown">
           <skills-section />
         </swiper-slide>
 
-        <swiper-slide>
+        <swiper-slide class="z-10">
           <random-stars></random-stars>
           <div class="w-screen h-screen bg-[#152934] flex items-center" data-anchor="page3">
             <projects-section />
           </div>
+          <img src="assets/uranus.png" alt="moon" class="uranusUp">
         </swiper-slide>
 
-        <swiper-slide>
+        <swiper-slide class="z-10">
           <random-stars></random-stars>
+          <img src="assets/uranus.png" alt="moon" class="uranusDown">
           <div class="w-screen h-screen bg-[#152934] flex items-center" data-anchor="page4">
             <about-section />
           </div>
         </swiper-slide>
         <swiper-slide>
           <random-stars></random-stars>
-            <contact-section />
+          <img src="assets/saturn.png" alt="moon" class="moonUp">
+          <contact-section />
         </swiper-slide>
       </swiper>
     </div>
@@ -86,12 +89,20 @@ const onSwiper = (swiper) => {
 .myPrincipalSwiper .swiper-slide {
 }
 
+.uranusUp{
+  @apply z-0 absolute top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-70 rotate-90
+}
+
+.uranusDown{
+  @apply z-0 absolute top-[-24vh] md:top-[-24vh] lg:top-[-15vh] xl:top-[-30vh] max-w-[70vw] opacity-70 rotate-90
+}
+
 .moonUp{
-  @apply z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-80
+  @apply z-0 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[76vh]  md:top-[76vh] lg:top-[85vh] xl:top-[70vh] max-w-[70vw] opacity-90
 }
 
 .moonDown{
-  @apply z-10 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[-24vh] md:top-[-24vh] lg:top-[-15vh] xl:top-[-30vh] max-w-[70vw] opacity-80
+  @apply z-0 absolute left-[52vw] lg:left-[55vw] xl:left-[61.198vw] top-[-24vh] md:top-[-24vh] lg:top-[-15vh] xl:top-[-30vh] max-w-[70vw] opacity-90
 }
 
 @media (orientation: landscape) and (max-device-width : 960px) {
@@ -105,8 +116,5 @@ const onSwiper = (swiper) => {
   .moonDown {
     @apply top-[-15vhvh] z-[1] max-w-[35vw] left-[62vw]
   }
-}
-.fp-watermark{
-  visibility: hidden;
 }
 </style>
