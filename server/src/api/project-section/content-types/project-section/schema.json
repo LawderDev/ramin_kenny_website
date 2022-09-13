@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_sections",
+  "info": {
+    "singularName": "project-section",
+    "pluralName": "project-sections",
+    "displayName": "ProjectSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "projects": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

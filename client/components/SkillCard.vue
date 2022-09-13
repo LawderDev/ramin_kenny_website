@@ -6,30 +6,42 @@
     <h3 class="landscape:sm:text-xs landscape:lg:text-xl landscape:xl:text-1xl text-xl xl:text-2xl">
       {{ props.title }}
     </h3>
-    <template v-for="skill in props.content" :key="props.title + skill.name">
-      <h4 class="content-card text-[#7FD685]">
-        {{ skill.name }}
-      </h4>
-      <ul class="content-card pb-4">
-        <li v-for="c in skill.content" :key="props.title + c">
-          {{ c }}
-        </li>
-      </ul>
-    </template>
+
+    <div v-for="(skill, index) in props.content" :key="`${props.title}-${index}`">
+      <div v-for="(obj, index2) in skill" :key="`${props.title}-${index}-${index2}`">
+        <div v-if="obj[0]">
+          <h4 class="content-card text-[#7FD685]">
+            {{ getKeyByValue(skill, obj) }}
+          </h4>
+          <ul class="content-card pb-4">
+            <li v-for="s in obj" :key="`${props.title}-${index}-${index2}-${s.name}`">
+              {{ s.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 interface ISkill{
-  name: string,
-  content: Array<string>,
+  title: string,
+  language: Array<string>,
+  frameworksAndLibrary: Array<string>,
+  sgbd: Array<string>,
+  cms: Array<string>,
+  gameEngine: Array<string>,
 }
 
 const props = defineProps<{
   title: string
   icon: string
-  content: Array<ISkill>
+  content: ISkill
 }>()
+
+const getKeyByValue = (object, value) => Object.keys(object).find(key => object[key] === value)
+
 </script>
 
 <style scoped>

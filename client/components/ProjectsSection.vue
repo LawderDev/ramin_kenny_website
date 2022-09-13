@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="text-md md:text-lg lg:text-xl xl:text-2xl relative z-20 flex items-center justify-center portrait:mb-12 portrait:md:mb-14 mb-10 font-bold ">
-      Principaux Réalisations
+      {{ projectInfos.data.projectSection.data.attributes.title }}
     </h2>
     <swiper
       :slides-per-view="slidesPerView"
@@ -44,7 +44,12 @@ import 'swiper/css'
 
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { onUnmounted, ref } from '#imports'
+import { onUnmounted, ref, useStrapiGraphQL } from '#imports'
+import { projectQuery } from '~/graphql/query'
+// eslint-disable-next-line no-redeclare
+
+const graphql = useStrapiGraphQL()
+const projectInfos = await graphql(projectQuery)
 
 const slidesPerView = ref(-1 as number)
 

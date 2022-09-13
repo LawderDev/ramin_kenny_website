@@ -14,11 +14,7 @@
         class="w-full flex flex-col transition-opacity duration-500 h-screen gap-5 align-super items-center z-[1] lg:opacity-100 lg:visible lg:flex lg:relative lg:w-auto lg:h-auto lg:flex-row lg:bg-transparent"
         :class="{ 'visible opacity-100': isMenuOpen }, {'invisible opacity-0': !isMenuOpen}"
       >
-        <a class="hover" @click="slideTo(0)">Accueil</a>
-        <a class="hover" @click="slideTo(1)">Compétences</a>
-        <a class="hover" @click="slideTo(2)">Réalisations</a>
-        <a class="hover" @click="slideTo(3)">A propos</a>
-        <a class="hover" @click="slideTo(4)">Contact</a>
+        <a v-for="(item,index) in navBarInfos.data.navigationBars.data" :key="`${index}-${item.attributes.updatedAt}}`" class="hover" @click="slideTo(index)">{{ item.attributes.name }}</a>
       </nav>
     </div>
   </div>
@@ -27,12 +23,16 @@
 <script lang="ts" setup>
 import { useSliderStore } from '~/stores/sliderStore'
 import { HamburgerIcon } from '#components'
-import { ref } from '#imports'
+import { navBarQuery } from '~/graphql/query'
+import { ref, useStrapiGraphQL } from '#imports'
+
+const graphql = useStrapiGraphQL()
+const navBarInfos = await graphql(navBarQuery)
 
 const sliderStore = useSliderStore()
 const isMenuOpen = ref(false)
 
-const openMenu = () => { isMenuOpen.value = !isMenuOpen.value}
+const openMenu = () => { isMenuOpen.value = !isMenuOpen.value }
 
 const slideTo = (index: number) => {
   sliderStore.slideTo(index)

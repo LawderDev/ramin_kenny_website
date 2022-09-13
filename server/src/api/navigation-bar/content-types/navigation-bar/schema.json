@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "authors",
+  "collectionName": "navigation_bars",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Author"
+    "singularName": "navigation-bar",
+    "pluralName": "navigation-bars",
+    "displayName": "NavigationBar"
   },
   "options": {
     "draftAndPublish": true

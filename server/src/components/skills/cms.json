@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_skills_cms",
+  "info": {
+    "displayName": "Cms"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
