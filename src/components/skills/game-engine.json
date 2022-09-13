@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_skills_game_engines",
+  "info": {
+    "displayName": "GameEngine"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
