@@ -11,7 +11,7 @@
       <div v-for="(obj, index2) in skill" :key="`${props.title}-${index}-${index2}`">
         <div v-if="obj[0]">
           <h4 class="content-card text-[#7FD685]">
-            {{ getKeyByValue(skill, obj) }}
+            {{ myMap.get(getKeyByValue(skill, obj)) }}
           </h4>
           <ul class="content-card pb-4">
             <li v-for="s in obj" :key="`${props.title}-${index}-${index2}-${s.name}`">
@@ -41,6 +41,13 @@ const props = defineProps<{
 }>()
 
 const getKeyByValue = (object, value) => Object.keys(object).find(key => object[key] === value)
+
+const myMap = new Map();
+myMap.set("language", 'Langages')
+myMap.set("frameworksAndlibrary", 'Frameworks et librairies')
+myMap.set("gameEngine", "Moteurs de jeux")
+myMap.set("sgbd", "SGBD")
+myMap.set("cms", "CMS")
 
 </script>
 
