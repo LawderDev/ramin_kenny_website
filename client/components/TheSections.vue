@@ -41,7 +41,7 @@
             <about-section />
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <swiper-slide class="z-20">
           <random-stars />
           <img src="assets/saturn.png" alt="moon" class="moonUp">
           <contact-section />

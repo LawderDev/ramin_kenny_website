@@ -33,14 +33,15 @@
                   </div>
                   <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <DialogTitle as="h3" class="text-lg font-medium leading-6 text-[#FEFEFF]">
-                      {{ props.confirmationMessage }}
+                      <slot />
                     </DialogTitle>
                   </div>
                 </div>
               </div>
               <div class="bg-[#152934] px-4 pb-5 flex justify-center sm:px-6">
-                <button type="button" class="inline-flex w-full justify-center rounded-md border border-transparent bg-[#7FD685] hover:bg-[#7fd698] px-4 py-2 text-base text-[#152934] shadow-sm focus:outline-none focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm" @click="$emit('close', true)">
-                  Compris !
+                <button type="button"
+                        class="inline-flex w-full justify-center rounded-md border border-transparent bg-[#7FD685] hover:bg-[#7fd698] px-4 py-2 text-base text-[#152934] shadow-sm focus:outline-none focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm" @click="$emit('close', true)">
+                  {{ confirmationMessage }}
                 </button>
               </div>
             </DialogPanel>

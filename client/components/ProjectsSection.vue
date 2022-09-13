@@ -46,7 +46,6 @@ const slidesPerView = ref(-1 as number)
 
 const orientationChangeHandler = () => { slidesPerView.value = window.matchMedia('(orientation:portrait)').matches ? 2 : 5 }
 
-console.log(projectInfos.data.projectSection.data.attributes.projects.data[0].attributes)
 if (process.client) {
   orientationChangeHandler()
   window.addEventListener('resize', orientationChangeHandler)
