@@ -65,6 +65,7 @@ export const projectQuery =
             projects {
               data {
                 attributes {
+                  name
                   url
                 }
               }

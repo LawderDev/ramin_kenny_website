@@ -17,20 +17,11 @@
       class="mySwipe w-[98vw] h-[33vh] overflow-visible relative z-0"
       @beforeInit="orientationChangeHandler"
     >
-      <swiper-slide class="project-slides">
-        <img class="imgProject" src="assets/project_IGDB.png" alt="IGDB">
+      <swiper-slide v-for="(project, index) in projectInfos.data.projectSection.data.attributes.projects.data" :key="`${project.attributes.name}-${index}`" class="project-slides">
+        <img class="imgProject" :src="`${strapiUrl.replace('/api', '')}${project.attributes.url}`" :alt="project.attributes.name">
       </swiper-slide>
-      <swiper-slide class="project-slides">
-        <img class="imgProject" src="assets/perso.png" alt="perso">
-      </swiper-slide>
-      <swiper-slide class="project-slides">
-        <img class="imgProject" src="assets/project_IGDB.png" alt="IGDB">
-      </swiper-slide>
-      <swiper-slide class="project-slides">
-        <img class="imgProject" src="assets/imageindragon.png" alt="imageindragon">
-      </swiper-slide>
-      <swiper-slide class="project-slides">
-        <img class="imgProject" src="assets/perso.png" alt="perso">
+      <swiper-slide v-for="(project, index) in projectInfos.data.projectSection.data.attributes.projects.data" :key="`${project.attributes.name}-${index}`" class="project-slides">
+        <img class="imgProject" :src="`${strapiUrl.replace('/api', '')}${project.attributes.url}`" :alt="project.attributes.name">
       </swiper-slide>
     </swiper>
   </div>
@@ -44,10 +35,10 @@ import 'swiper/css'
 
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { onUnmounted, ref, useStrapiGraphQL } from '#imports'
+import { onUnmounted, ref, useStrapiGraphQL, useStrapiUrl } from '#imports'
 import { projectQuery } from '~/graphql/query'
-// eslint-disable-next-line no-redeclare
 
+const strapiUrl = useStrapiUrl()
 const graphql = useStrapiGraphQL()
 const projectInfos = await graphql(projectQuery)
 
@@ -55,6 +46,7 @@ const slidesPerView = ref(-1 as number)
 
 const orientationChangeHandler = () => { slidesPerView.value = window.matchMedia('(orientation:portrait)').matches ? 2 : 5 }
 
+console.log(projectInfos.data.projectSection.data.attributes.projects.data[0].attributes)
 if (process.client) {
   orientationChangeHandler()
   window.addEventListener('resize', orientationChangeHandler)
