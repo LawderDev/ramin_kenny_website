@@ -5,8 +5,8 @@
      lg:flex-row lg:pr-24 lg:pl-6 z-[1] relative transition-all duration-450 overflow-hidden"
       :class="{ 'h-screen bg-[#1B3543]': isMenuOpen }, { 'h-20 bg-transparent': !isMenuOpen }"
     >
-      <div class="flex align-center items-center z-[2] pt-2">
-        <div class="w-16 h-16 bg-green-100 rounded-full" />
+      <div class="flex align-center items-center z-[2] pt-2 pl-1">
+        <img :src="`${strapiUrl.replace('/api', '')}${findLogo().attributes.logo.data.attributes.url}`" class="w-[4.5rem] h-16 rounded-full"  :alt="findLogo().attributes.logo.data.attributes.name"/>
         <hamburger-icon class="absolute landscape:left-[88vw] left-[78vw] md:left-[88vw] lg:invisible" :is-open="isMenuOpen" @openMenu="openMenu" />
       </div>
 
@@ -14,7 +14,9 @@
         class="w-full flex flex-col transition-opacity duration-500 h-screen gap-5 align-super items-center z-[1] lg:opacity-100 lg:visible lg:flex lg:relative lg:w-auto lg:h-auto lg:flex-row lg:bg-transparent"
         :class="{ 'visible opacity-100': isMenuOpen }, {'invisible opacity-0': !isMenuOpen}"
       >
-        <a v-for="(item,index) in navBarInfos.data.navigationBars.data" :key="`${index}-${item.attributes.updatedAt}}`" class="hover" @click="slideTo(index)">{{ item.attributes.name }}</a>
+        <template v-for="(item,index) in navBarInfos.data.navigationBars.data">
+          <a :key="`${index}-${item.attributes.updatedAt}}`" v-if="item.attributes.name" class="hover" @click="slideTo(index)">{{ item.attributes.name }}</a>
+        </template>
       </nav>
     </div>
   </div>
@@ -24,8 +26,9 @@
 import { useSliderStore } from '~/stores/sliderStore'
 import { HamburgerIcon } from '#components'
 import { navBarQuery } from '~/graphql/query'
-import { ref, useStrapiGraphQL } from '#imports'
+import {ref, useStrapiGraphQL, useStrapiUrl} from '#imports'
 
+const strapiUrl = useStrapiUrl()
 const graphql = useStrapiGraphQL()
 const navBarInfos = await graphql(navBarQuery)
 
@@ -33,6 +36,7 @@ const sliderStore = useSliderStore()
 const isMenuOpen = ref(false)
 
 const openMenu = () => { isMenuOpen.value = !isMenuOpen.value }
+const findLogo = () => navBarInfos.data.navigationBars.data.find((e) => e.attributes.name === 'logo')
 
 const slideTo = (index: number) => {
   sliderStore.slideTo(index)

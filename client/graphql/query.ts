@@ -19,7 +19,15 @@ export const navBarQuery =
         data {
           attributes {
             updatedAt,
-            name
+            name,
+            logo {
+              data {
+                attributes {
+                    name
+                    url
+                }
+              }
+            }
           }
         }
       }
