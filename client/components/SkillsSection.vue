@@ -25,7 +25,7 @@ import { Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { SkillCard } from '#components'
 import { onUnmounted, ref, useStrapiGraphQL } from '#imports'
-import { skillQuery } from '~/graphql/query'
+import { skillQuery } from '@/graphql/query'
 
 const graphql = useStrapiGraphQL()
 const skillInfos = await graphql(skillQuery)

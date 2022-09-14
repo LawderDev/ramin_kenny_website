@@ -46,9 +46,9 @@
       </div>
     </form>
     <div class="w-[70vw] flex gap-10">
-      <a href="instagram.com"> <font-awesome-icon icon="fa-brands fa-instagram" class="brandIcon" /></a>
-      <a href="linkedin.com"><font-awesome-icon icon="fa-brands fa-linkedin" class="brandIcon" /></a>
-      <a href="github.com"><font-awesome-icon icon="fa-brands fa-github" class="brandIcon" /></a>
+      <a href="https://instagram.com/ramin_kenny_433/"><font-awesome-icon icon="fa-brands fa-instagram" class="brandIcon" /></a>
+      <a href="https://www.linkedin.com/in/kenny-ramin/"><font-awesome-icon icon="fa-brands fa-linkedin" class="brandIcon" /></a>
+      <a href="https://github.com/LawderDev/"><font-awesome-icon icon="fa-brands fa-github" class="brandIcon" /></a>
     </div>
     <div class="absolute  top-[90vh] md:top-[84vh] text-center landscape:top-[90vh] landscape:text-xs landscape:lg:top-[86vh] landscape:lg:text-lg">
       <p>© 2022 Kenny Ramin</p>
@@ -73,10 +73,10 @@
 
 <script setup lang="ts">
 import emailjs from '@emailjs/browser'
-import { useRuntimeConfig } from 'nuxt/app'
-import ContactModal from '~/components/ContactModal'
+import { useRuntimeConfig } from '#imports'
+import ContactModal from '@/components/ContactModal'
 import { ref, useStrapiGraphQL } from '#imports'
-import { contactQuery } from '~/graphql/query'
+import { contactQuery } from '@/graphql/query'
 const graphql = useStrapiGraphQL()
 const contactInfos = await graphql(contactQuery)
 

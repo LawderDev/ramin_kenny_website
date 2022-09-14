@@ -32,8 +32,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useSliderStore } from '~/stores/sliderStore'
-import { homeQuery } from '~/graphql/query'
+import { useSliderStore } from '@/stores/sliderStore'
+import { homeQuery } from '@/graphql/query'
 import { useStrapiGraphQL } from '#imports'
 
 const graphql = useStrapiGraphQL()

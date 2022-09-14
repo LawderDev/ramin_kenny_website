@@ -6,7 +6,9 @@
         :pagination="{
           clickable: true,
         }"
-        :mousewheel="true"
+        :mousewheel="{
+          invert:true
+        }"
         :modules="[Pagination, Mousewheel]"
         class="myPrincipalSwiper"
         @swiper="onSwiper"
@@ -60,7 +62,7 @@ import ProjectsSection from '@/components/ProjectsSection.vue'
 import AboutSection from '@/components/AboutSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
 import RandomStars from '@/components/RandomStars.vue'
-import { useSliderStore } from '~/stores/sliderStore'
+import { useSliderStore } from '@/stores/sliderStore'
 import 'swiper/css'
 import 'swiper/css/pagination'
 

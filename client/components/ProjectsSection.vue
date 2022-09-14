@@ -36,7 +36,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { onUnmounted, ref, useStrapiGraphQL, useStrapiUrl } from '#imports'
-import { projectQuery } from '~/graphql/query'
+import { projectQuery } from '@/graphql/query'
 
 const strapiUrl = useStrapiUrl()
 const graphql = useStrapiGraphQL()

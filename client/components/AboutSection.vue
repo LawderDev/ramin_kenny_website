@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { aboutQuery } from '~/graphql/query'
+import { aboutQuery } from '@/graphql/query'
 import { useStrapiGraphQL, useStrapiUrl } from '#imports'
 
 const graphql = useStrapiGraphQL()

@@ -15,7 +15,7 @@
         :class="{ 'visible opacity-100': isMenuOpen }, {'invisible opacity-0': !isMenuOpen}"
       >
         <template v-for="(item,index) in navBarInfos.data.navigationBars.data">
-          <a :key="`${index}-${item.attributes.updatedAt}}`" v-if="item.attributes.name" class="hover" @click="slideTo(index)">{{ item.attributes.name }}</a>
+          <a :key="`${index}-${item.attributes.updatedAt}}`" v-if="item.attributes.name !== 'logo'" class="hover" @click="slideTo(index)">{{ item.attributes.name }}</a>
         </template>
       </nav>
     </div>
@@ -23,9 +23,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useSliderStore } from '~/stores/sliderStore'
+import { useSliderStore } from '@/stores/sliderStore'
 import { HamburgerIcon } from '#components'
-import { navBarQuery } from '~/graphql/query'
+import { navBarQuery } from '@/graphql/query'
 import {ref, useStrapiGraphQL, useStrapiUrl} from '#imports'
 
 const strapiUrl = useStrapiUrl()
