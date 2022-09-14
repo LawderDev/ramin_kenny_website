@@ -9,7 +9,8 @@ export default defineNuxtConfig({
       '@fortawesome/free-solid-svg-icons',
       '@fortawesome/free-brands-svg-icons',
       '@headlessui/vue',
-      '@heroicons/vue'
+      '@heroicons/vue',
+      'swiper'
     ]
   },
   css: [
