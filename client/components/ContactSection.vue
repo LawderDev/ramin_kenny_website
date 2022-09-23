@@ -11,7 +11,7 @@
       {{ contactInfos.data.contactSection.data.attributes.title }}
     </h2>
     <form ref="form" class="flex justify-center items-center flex-col relative z-10" @submit.prevent="sendEmail">
-      <div class="bg-[#1B3543] rounded-2xl landscape:h-[82vh] landscape:w-[70vw] w-[80vw] landscape:lg:h-[60vh] landscape:xl:h-[53vh] h-[28rem] md:h-[55vh] flex flex-col items-center gap-3 justify-center landscape:mb-1 landscape:lg:mb-5 mb-2 md:mb-5">
+      <div class="bg-[#1B3543] rounded-2xl landscape:h-[82vh] landscape:w-[70vw] w-[80vw] landscape:lg:h-[60vh] landscape:xl:h-[75vh] landscape:2xl:h-[53vh] h-[28rem] md:h-[55vh] flex flex-col items-center gap-3 justify-center landscape:mb-1 landscape:lg:mb-5 mb-2 md:mb-5">
         <div class="flex flex-col w-[95%]">
           <label class="titleInput">{{ contactInfos.data.contactSection.data.attributes.name }}</label>
           <input

@@ -35,7 +35,6 @@
 import { useSliderStore } from '@/stores/sliderStore'
 import { homeQuery } from '@/graphql/query'
 import { useStrapiGraphQL } from '#imports'
-
 const graphql = useStrapiGraphQL()
 const homeInfos = await graphql(homeQuery)
 const sliderStore = useSliderStore()
